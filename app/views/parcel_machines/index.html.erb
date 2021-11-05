@@ -24,9 +24,9 @@
             <% @parcel_machines.each do |pm| %>
                 <div></div>
                 <tr>
-                <td><%= pm.name %></td>
+                <td><%= link_to pm.name, pm %></td>
                 <td><%= pm.zip %></td>
-                <td><%= pm.full_addresses %></td>
+                <td><%= pm.full_address %></td>
                 </tr>
             <% end %>  
         </tbody>
