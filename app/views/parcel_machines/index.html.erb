@@ -1,29 +1,40 @@
-
-
-<%#= @data %>
 <div class="container">
  <h1>Parcel Machines</h1>
+
+    <div class="d-flex justify-content-center">
+        <%= form_tag(root_path, method: :get, class: "row w-35") do %>
+            <div class="input-group">
+                    <%= text_field_tag(:search, params[:search], class: "form-control") %>
+                    <div class="input-group-append">
+                        <%= submit_tag("Search", name: nil, class: "btn btn-primary mb-3") %>
+                    </div>
+            </div>
+        <% end %>
+    </div>
+
     <table class="table table-striped">
-    <thead>
-        <tr>
-        <th scope="col">Name</th>
-        <th scope="col">ZIP</th>
-        <th scope="col">Address</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @parcel_machines.each do |pm| %>
-            <div></div>
+        <thead>
             <tr>
-            <td><%= pm.name %></td>
-            <td><%= pm.zip %></td>
-            <td><%= pm.full_addresses %></td>
+            <th scope="col">Name</th>
+            <th scope="col">ZIP</th>
+            <th scope="col">Address</th>
             </tr>
-        <% end %>  
-    </tbody>
+        </thead>
+        <tbody>
+            <% @parcel_machines.each do |pm| %>
+                <div></div>
+                <tr>
+                <td><%= pm.name %></td>
+                <td><%= pm.zip %></td>
+                <td><%= pm.full_addresses %></td>
+                </tr>
+            <% end %>  
+        </tbody>
     </table>
 
-    <div><%= paginate @parcel_machines, theme: 'twitter-bootstrap-4',
+    <div>
+        <%= paginate @parcel_machines, theme: 'twitter-bootstrap-4',
                    pagination_class: "pagination-md justify-content-center",
-                   nav_class: "d-inline-b" %></div>
+                   nav_class: "d-inline-b" %>
+    </div>
 </div>
