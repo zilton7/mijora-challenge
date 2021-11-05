@@ -1,5 +1,25 @@
- <% @parcel_machines.each do |d| %>
-    <div><%= d.name %></div>
-<% end %>  
+ <h1>Parcel Machines</h1>
+
 
 <%#= @data %>
+<div class="container">
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">ZIP</th>
+        <th scope="col">Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @parcel_machines.each do |pm| %>
+            <div></div>
+            <tr>
+            <td><%= pm.name %></td>
+            <td><%= pm.zip %></td>
+            <td><%= pm.zip %></td>
+            </tr>
+        <% end %>  
+    </tbody>
+    </table>
+</div>
