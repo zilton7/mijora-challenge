@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_093225) do
+ActiveRecord::Schema.define(version: 2021_11_05_114002) do
 
   create_table "parcel_machines", force: :cascade do |t|
     t.string "name"
     t.string "zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
+    t.string "pm_type"
     t.string "a0_name"
     t.string "a1_name"
     t.string "a2_name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_093225) do
     t.string "comment_rus"
     t.string "comment_lav"
     t.string "comment_lit"
-    t.string "MODIFIED"
+    t.string "modified"
   end
 
 end
