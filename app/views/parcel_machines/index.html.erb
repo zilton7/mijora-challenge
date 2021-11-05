@@ -1,8 +1,8 @@
- <h1>Parcel Machines</h1>
 
 
 <%#= @data %>
 <div class="container">
+ <h1>Parcel Machines</h1>
     <table class="table table-striped">
     <thead>
         <tr>
@@ -17,9 +17,13 @@
             <tr>
             <td><%= pm.name %></td>
             <td><%= pm.zip %></td>
-            <td><%= pm.zip %></td>
+            <td><%= pm.full_addresses %></td>
             </tr>
         <% end %>  
     </tbody>
     </table>
+
+    <div><%= paginate @parcel_machines, theme: 'twitter-bootstrap-4',
+                   pagination_class: "pagination-md justify-content-center",
+                   nav_class: "d-inline-b" %></div>
 </div>
