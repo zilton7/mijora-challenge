@@ -27,7 +27,7 @@ data.each do |d|
     "comment_lit" => d["comment_lit"],
     "modified" => d["MODIFIED"]
   }
-    if ParcelMachine.where(zip: d["ZIP"]).count > 0
+    if ParcelMachine.where(zip: d["ZIP"]).any?
       ParcelMachine.where(zip: d["ZIP"]).update(new_data)
       p 'updated'
     else
