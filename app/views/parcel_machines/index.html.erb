@@ -37,6 +37,6 @@
                    nav_class: "d-inline-b" %>
     </div>
     <div class="d-flex justify-content-center mt-4">
-        <p><strong>Last Update:</strong> <%= Update.last.updated_at if Update.last %></p>
+        <p><%= "<strong>Last Update:</strong> #{Update.last.updated_at}".html_safe if Update.last %></p>
     </div>
 </div>
