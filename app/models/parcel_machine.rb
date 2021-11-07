@@ -22,8 +22,8 @@ class ParcelMachine < ApplicationRecord
   end
 
   def self.search(q)
-    self.where("name ILIKE ? OR zip ILIKE ? OR a1_name ILIKE ?\
+    self.where("name ILIKE ? OR zip ILIKE ? OR a1_name ILIKE ? OR a0_name ILIKE ?\
       OR a2_name ILIKE ? OR a3_name ILIKE ? OR a5_name ILIKE ? OR a7_name ILIKE ?", 
-        "%#{q}%", "%#{q}%", "%#{q}%","%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%")
+        "%#{q}%", "%#{q}%", "%#{q}%","%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%")
   end
 end

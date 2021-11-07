@@ -1,10 +1,8 @@
-<div class="d-flex justify-content-center mt-4">
-    <%= form_tag(root_path, method: :get, class: "row w-35") do %>
-        <div class="input-group">
-                <%= text_field_tag(:search, params[:search], class: "form-control", placeholder: "Search by Name/Zip/Address")%>
-                <div class="input-group-append">
-                    <%= submit_tag("Search", name: nil, class: "btn btn-outline-secondary mb-3") %>
-                </div>
-        </div>
-    <% end %>
-</div>
+<%= form_tag(root_path, method: :get, class: "row") do %>
+    <div class="input-group">
+            <%= text_field_tag(:search, params[:search], class: "form-control", placeholder: "Search by Name/Zip/Address")%>
+            <div class="input-group-append">
+                <%= submit_tag("Search", name: nil, class: "btn btn-outline-secondary mb-3") %>
+            </div>
+    </div>
+<% end %>
