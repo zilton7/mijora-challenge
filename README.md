@@ -13,7 +13,7 @@ This app gathers data for parcel machine locations around the Baltic states from
 
 ### To get a local copy up and running:
 
-1. Clone this repository or download the Zip folder.
+1. Clone this repository.
 
    ```
    git clone https://github.com/zilton7/mijora-challenge.git
