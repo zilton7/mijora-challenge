@@ -29,10 +29,14 @@ namespace :sync_data do
           "comment_lit" => d["comment_lit"],
           "modified" => d["MODIFIED"]
         }
-        record = ParcelMachine.where(zip: d["ZIP"])
-          if record.any?
-            record.update(new_data)
-            p 'updated'
+        record = ParcelMachine.where(zip: d["ZIP"]).first
+          unless record.nil?
+            if ParcelMachine.different?(record, ParcelMachine.new(new_data))
+              record.update(new_data)
+              p 'updated'
+            else
+              p 'no difference'
+            end
           else
             ParcelMachine.create(new_data)
             p 'created'
