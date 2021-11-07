@@ -2,15 +2,16 @@ class ParcelMachinesController < ApplicationController
   before_action :set_parcel_machine, only: %i[ show ]
 
   def index
-    if params['search'] && params['search'].length > 0
-      @parcel_machines = ParcelMachine.search(params['search']).page params[:page]
+    search_query = params['search']
+    if search_query && search_query.length > 0
+      @parcel_machines = ParcelMachine.search(search_query).page params[:page]
     else
       @parcel_machines = ParcelMachine.page params[:page]
     end
 
     respond_to do |format|
       format.html
-      format.csv { send_data ParcelMachine.to_csv(params['search']), filename: "parcel-machines-#{Time.now.strftime("%Y-%m-%d %H.%M.%S")}.csv" }
+      format.csv { send_data ParcelMachine.to_csv(search_query), filename: generate_filename }
     end
   end
 
@@ -26,5 +27,9 @@ class ParcelMachinesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def parcel_machine_params
     params.fetch(:parcel_machine, {}).permit(:search)
+  end
+
+  def generate_filename
+    "parcel-machines-#{Time.now.strftime("%Y-%m-%d %H.%M.%S")}.csv"
   end
 end

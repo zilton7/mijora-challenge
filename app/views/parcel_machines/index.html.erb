@@ -1,16 +1,5 @@
 <div class="container">
- <h1>Parcel Machines</h1>
-
-    <div class="d-flex justify-content-center">
-        <%= form_tag(root_path, method: :get, class: "row w-35") do %>
-            <div class="input-group">
-                    <%= text_field_tag(:search, params[:search], class: "form-control") %>
-                    <div class="input-group-append">
-                        <%= submit_tag("Search", name: nil, class: "btn btn-primary mb-3") %>
-                    </div>
-            </div>
-        <% end %>
-    </div>
+        <%= render 'searchbar' %>
         <%= link_to_csv %>
     <table class="table table-striped">
         <thead>
