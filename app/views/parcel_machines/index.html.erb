@@ -31,10 +31,12 @@
             <% end %>  
         </tbody>
     </table>
-
     <div>
         <%= paginate @parcel_machines, theme: 'twitter-bootstrap-4',
                    pagination_class: "pagination-md justify-content-center",
                    nav_class: "d-inline-b" %>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <p><strong>Last Update:</strong> <%= Update.last.updated_at if Update.last %></p>
     </div>
 </div>

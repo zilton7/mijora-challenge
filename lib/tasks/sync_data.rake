@@ -38,5 +38,6 @@ namespace :sync_data do
             p 'created'
           end
       end
+      Update.create!()
     end
 end
