@@ -3,7 +3,7 @@ class ParcelMachinesController < ApplicationController
 
   def index
     search_query = params['search']
-    if search_query && search_query.length > 0
+    unless search_query && search_query.empty?
       @parcel_machines = ParcelMachine.search(search_query).page params[:page]
     else
       @parcel_machines = ParcelMachine.page params[:page]

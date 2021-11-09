@@ -26,4 +26,9 @@ class ParcelMachine < ApplicationRecord
       OR a2_name ILIKE ? OR a3_name ILIKE ? OR a5_name ILIKE ? OR a7_name ILIKE ?", 
         "%#{q}%", "%#{q}%", "%#{q}%","%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%")
   end
+
+  def self.different?(record_a, record_b)
+   (record_a.attributes.to_a - record_b.attributes.to_a).map(&:first).count > 3
+  end
+
 end
