@@ -4,6 +4,8 @@ This app gathers data for parcel machine locations around the Baltic states from
 
 [Live Demo Link](https://parcel-machines.herokuapp.com/)
 
+![screenshot](./app_screenshot.png)
+
 ## Built With
 
 - Ruby 2.7.2
