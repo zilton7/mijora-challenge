@@ -5,23 +5,17 @@ namespace :sync_data do
       data.each do |d|
         new_record_data = generate_new_record(d)
         record = ParcelMachine.where(zip: d["ZIP"]).take!
-        next unless ParcelMachine.different?(record,  ParcelMachine.new(new_record_data))
-
-        record.update(new_record_data)
-        puts "#{record.zip}: updated"
-        
-        rescue ActiveRecord::RecordNotFound
+        record.update(new_record_data) if ParcelMachine.different?(record,  ParcelMachine.new(new_record_data))
+      rescue ActiveRecord::RecordNotFound
           ParcelMachine.create(new_record_data)
-          puts "#{new_record_data[:zip]}: created"
-
       end
-      Update.create!()
+      Update.create!
     end
 end
 
 def generate_new_record(data)
 { 
-      name: data["NAME"],
+    name: data["NAME"],
     zip: data["ZIP"],
     pm_type: data["TYPE"],
     a0_name: data["A0_NAME"],
