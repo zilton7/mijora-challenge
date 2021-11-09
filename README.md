@@ -13,7 +13,7 @@ This app gathers data for parcel machine locations around the Baltic states from
 - Bootstrap 4.3.1
 - Postgresql 13.3
 
-### To get a local copy up and running:
+## To get a local copy up and running:
 
 1. Clone this repository.
 
@@ -46,6 +46,12 @@ This app gathers data for parcel machine locations around the Baltic states from
    ```
    rails server
    ```
+
+## Testing
+Run tests with:
+```
+rspec
+```
 
 ## Author
 
